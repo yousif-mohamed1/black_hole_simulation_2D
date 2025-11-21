@@ -1,4 +1,4 @@
-# Black Hole 2D Lens Simulation (MVP)
+# Black Hole 2D Lens Simulation 
 
 ## Overview
 Minimal interactive 2D visualization of a stylized black hole gravitational lens, accretion disk, photon sphere rays, and orbiting / falling particles. Written in C++14 using raw OpenGL (fixed pipeline) + GLFW for windowing/input.
@@ -7,7 +7,7 @@ Minimal interactive 2D visualization of a stylized black hole gravitational lens
 `empty project/2D(final).cpp`
 
 ## Core Features
-- Pseudo–gravitational bending of light rays around a Schwarzschild black hole
+- Pseudoâ€“gravitational bending of light rays around a Schwarzschild black hole
 - Photon sphere grazing detection and glow
 - Accretion disk with Doppler beaming + gravitational dimming approximation
 - Adaptive sampling of initial ray impact parameters
@@ -86,7 +86,7 @@ This MVP does not solve true general relativity geodesics. It applies a heuristi
 To upgrade from heuristic steering to physically correct light propagation:
 1. Use Schwarzschild metric (start with equatorial plane) with units G = c = 1 so Rs = 2M.
 2. Integrate null geodesics (photon paths) using differential equations derived from the metric's Christoffel symbols or effective potential.
-3. Employ adaptive Runge–Kutta (RK45) for accurate step control near the photon sphere (critical impact parameter region).
+3. Employ adaptive Rungeâ€“Kutta (RK45) for accurate step control near the photon sphere (critical impact parameter region).
 4. Compute bending angle analytically for validation: weak-field limit ?? ? 4GM/(bc^2).
 5. Replace artificial ringFactor with naturally emergent multiple orbits as impact parameter approaches critical value b_crit.
 6. Map geodesic samples back to disk coordinates to compute emission + relativistic Doppler/gravitational shifts.
@@ -112,7 +112,7 @@ Near the photon sphere (r = 1.5 Rs) small changes in impact parameter produce la
 2. Add RK45 implementation and a Schwarzschild geodesic integrator returning polyline samples.
 3. Side-by-side compare heuristic vs physical mode (`--mode=approx` / `--mode=phys`).
 4. Add weak-field bending angle test harness (assert error < chosen tolerance for large b).
-5. Introduce disk emission physically: emissivity ?(r) ~ r^{-q} (q ? 2–3), gravitational redshift factor ?(1 - Rs/r), Doppler factor using orbital velocity v = ?(GM/r).
+5. Introduce disk emission physically: emissivity ?(r) ~ r^{-q} (q ? 2â€“3), gravitational redshift factor ?(1 - Rs/r), Doppler factor using orbital velocity v = ?(GM/r).
 6. Optimize: cache geodesic samples for reused impact parameters; multithread precomputation.
 7. Replace immediate mode with modern OpenGL (VAO/VBO + GLSL) for performance.
 
